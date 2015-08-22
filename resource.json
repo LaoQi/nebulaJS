@@ -1,0 +1,8 @@
+var Resource = {
+	"src" : [
+        "src/hello.js"
+	],
+	"texture" : {
+        "doge" : "Resource/doge.png"
+	}
+};
