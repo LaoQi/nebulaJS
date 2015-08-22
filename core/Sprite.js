@@ -16,7 +16,7 @@ var Sprite = Class.extend({
 	init : function (img, ract) {
         this._texture = Texture.getTexture(img);
         if (typeof(rect) === "undefined") {
-            this._ract = Ract(0, 0, this._texture.width, this._texture.height);
+            this._ract = Nebula.Ract(0, 0, this._texture.width, this._texture.height);
         } else {
             this._ract = ract;
         }
@@ -25,8 +25,8 @@ var Sprite = Class.extend({
 	},
     setScale : function (s) {
         this.scale = s;
-        this.width *= s;
-        this.height *= s;
+        this.width = this._ract.w * s;
+        this.height = this._ract.h * s;
     },
 
 	draw : function (ctx, dt) {

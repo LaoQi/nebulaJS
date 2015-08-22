@@ -5,7 +5,6 @@ var Loader = {
         "core/Director.js",
         "core/Texture.js",
         "core/Common.js",
-        "core/Delay.js",
         "core/Scene.js",
         "core/Sprite.js"
     ],

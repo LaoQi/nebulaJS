@@ -2,15 +2,17 @@ var Scene = Class.extend({
 	_childs : null,
 	_index : null,
 
+    schedule : false,
+
 	init : function () {
 		this._childs = [];
 		this._index = [];
 	},
 	_sort : function () {
 		if (this._childs && this._childs.length > 0) {
-			for (var i in this._index) {
-
-			}
+            this._childs.sort(function(a, b) {
+                return a.zIndex - b.zIndex;
+            });
 		}
 	},
 	addChild : function (child, index) {
@@ -25,6 +27,9 @@ var Scene = Class.extend({
 		}
 	},
 	_update : function(dt) {
+        if (this.schedule) {
+            this.update(dt);
+        }
 		for (var i in this._childs) {
 			if (this._childs[i].schedule) {
 				this._childs[i].update(dt);
