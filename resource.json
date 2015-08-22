@@ -3,6 +3,7 @@ var Resource = {
         "src/hello.js"
 	],
 	"texture" : {
-        "doge" : "Resource/doge.png"
+        "doge" : "Resource/doge.png",
+        "run" : "Resource/run.png"
 	}
 };

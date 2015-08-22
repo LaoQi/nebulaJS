@@ -26,7 +26,7 @@ Nebula.Director = {
         this.height = canvas.height;
 
 		this._lastFrameTime = (new Date()).getTime();
-		this._DT = 1000/30;
+		this._DT = 1000/60;
 		this._intervalID = setInterval("Nebula.Director.schedule()", this._DT);
 
 		this._updateFunc = [];

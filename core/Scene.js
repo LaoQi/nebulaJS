@@ -34,6 +34,9 @@ var Scene = Class.extend({
 			if (this._childs[i].schedule) {
 				this._childs[i].update(dt);
 			}
+			if (this._childs[i].animate) {
+				this._childs[i].updateAnimate(dt);
+			}
 		}
 	}
 });
