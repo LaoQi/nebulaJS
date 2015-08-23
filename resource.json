@@ -13,8 +13,6 @@ var Resource = {
         "head" : "Resource/head.png",
         "run" : "Resource/run.png",
         "b1" : "Resource/b1.png",
-        "b2" : "Resource/b2.png",
-        "r1" : "Resource/r1.png",
-        "r2" : "Resource/r2.png"
+        "b2" : "Resource/b2.png"
 	}
 };

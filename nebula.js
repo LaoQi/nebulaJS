@@ -1,3 +1,8 @@
+
+
+var canvas = document.getElementById("canvas");
+var context = canvas.getContext("2d");
+
 var Loader = {
     jslist : [],
     coreJS : [
@@ -31,7 +36,7 @@ var Loader = {
     _loadImage : function (name) {
         var img = new Image();
         img.onload = function() {
-            console.log("load Texture " + name);
+            Loader.display("Texture " + name);
             Texture.addTexture(name, img);
             Loader.textureCount++;
             if (Loader.textureCount == Loader.tc) {
@@ -47,7 +52,7 @@ var Loader = {
             Loader._loadScript(
                 src,
                 function () {
-                    console.log("loadJS " + src);
+                    Loader.display("Script " + src);
                     Loader.loadCore();
                 }
             )
@@ -62,7 +67,7 @@ var Loader = {
             Loader._loadScript(
                 src,
                 function () {
-                    console.log("loadJS " + src);
+                    Loader.display("Script " + src);
                     Loader.loadCore();
                 }
             )
@@ -82,13 +87,24 @@ var Loader = {
             Loader._loadScript(
                 src,
                 function () {
-                    console.log("loadJS " + src);
+                    Loader.display("Script " + src);
                     Loader.loadSrc();
                 }
             )
         } else {
             this.onReady();
         }
+    },
+    display : function (src) {
+        context.fillStyle = "white";
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.font = "Bold 20px";
+        context.textAlign = "left";
+        context.fillStyle = "black";
+        context.fillText("Loading " + src, canvas.width/4, canvas.height/2);
+
+        //test
+        // for(var t = Date.now();Date.now() - t <= 1000;);
     },
     request : function () {
         this.jslist = Resource.src;
@@ -100,8 +116,7 @@ var Loader = {
 }
 
 Loader.onReady = function () {
-    var canvas = document.getElementById("canvas");
-    var context = canvas.getContext("2d");
+
     Nebula.Director.init(canvas, context);
 
     document.onkeydown = Nebula.Director.onkeydown;
