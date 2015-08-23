@@ -1,9 +1,19 @@
 var Resource = {
 	"src" : [
-        "src/hello.js"
+		"src/main.js",
+        "src/animateTest.js",
+        "src/clickTest.js",
+        "src/keyboardTest.js",
+        "src/bindingbox.js",
+        "src/labeltest.js"
 	],
 	"texture" : {
         "doge" : "Resource/doge.png",
-        "run" : "Resource/run.png"
+        "head" : "Resource/head.png",
+        "run" : "Resource/run.png",
+        "b1" : "Resource/b1.png",
+        "b2" : "Resource/b2.png",
+        "r1" : "Resource/r1.png",
+        "r2" : "Resource/r2.png"
 	}
 };

@@ -1,4 +1,4 @@
-var HelloScene = Scene.extend({
+var AnimateTestScene = Scene.extend({
     init : function () {
         this._super();
         s = new Sprite("doge");
@@ -8,7 +8,6 @@ var HelloScene = Scene.extend({
         s.anchorX = 0.5;
         s.anchorY = 0.5;
         s.rotate = 20;
-        // s.hide = true;
         this.s1 = s;
         this.addChild(s);
 
@@ -38,7 +37,7 @@ var HelloScene = Scene.extend({
         s3.zIndex = 49;
         this.addChild(s3);
         Nebula.Delay(3, function(){
-            // s3.setScale(3);
+            s3.setScale(3);
         });
         s3.anchorX = 0.5;
         s3.anchorY = 0.5;
@@ -47,29 +46,6 @@ var HelloScene = Scene.extend({
         s3.rotate = 30;
         this.s3 = s3;
         this.schedule = true;
-
-        Nebula.Director._onkeydown = this.onkeydown;
-        Nebula.Director._onkeyeventObj = this;
-    },
-    onkeydown : function (keycode, thiz) {
-        switch (keycode) {
-            case 32 :
-                thiz.s3.setScale(thiz.s3.scale == 3 ? 1 : 3);
-                break;
-            case 37:
-                thiz.s3.x -= 5;
-                break;
-            case 38:
-                break;
-            case 39:
-                thiz.s3.x += 5;
-                break;
-            case 40:
-                thiz.s3.y += 5;
-                break;
-            default :
-                break;
-        }
     },
     update : function (dt) {
         this.s1.rotate -= 1;

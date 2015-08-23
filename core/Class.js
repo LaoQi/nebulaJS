@@ -1,3 +1,4 @@
+var $IDCOUNT = 1;
 /* Simple JavaScript Inheritance
  * By John Resig http://ejohn.org/
  * MIT Licensed.
@@ -48,6 +49,8 @@
       // All construction is actually done in the init method
       if ( !initializing && this.init )
         this.init.apply(this, arguments);
+
+      this._id = $IDCOUNT++;
     }
    
     // Populate our constructed prototype object

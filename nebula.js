@@ -1,12 +1,16 @@
 var Loader = {
     jslist : [],
     coreJS : [
-       "core/Class.js",
+        "core/Class.js",
         "core/Director.js",
         "core/Texture.js",
         "core/Common.js",
         "core/Scene.js",
         "core/Sprite.js"
+    ],
+    extJS : [
+        "ext/Button.js",
+        "ext/Label.js"
     ],
     textureCount : 0,
     tc : 0,
@@ -40,6 +44,21 @@ var Loader = {
     loadCore : function () {
         if (this.coreJS.length > 0) {
             var src = this.coreJS.shift();
+            Loader._loadScript(
+                src,
+                function () {
+                    console.log("loadJS " + src);
+                    Loader.loadCore();
+                }
+            )
+        } else {
+            this.loadExt();
+        }
+    },
+
+    loadExt : function () {
+        if (this.extJS.length > 0) {
+            var src = this.extJS.shift();
             Loader._loadScript(
                 src,
                 function () {
@@ -84,7 +103,12 @@ Loader.onReady = function () {
     var canvas = document.getElementById("canvas");
     var context = canvas.getContext("2d");
     Nebula.Director.init(canvas, context);
-    Nebula.Director.runScene(new HelloScene());
+
+    document.onkeydown = Nebula.Director.onkeydown;
+    document.onkeyup = Nebula.Director.onkeyup;
+    document.onkeypress = Nebula.Director.onkeypress;
+
+    Nebula.Director.runScene(new MainScene());
 }
 
 Loader.request();

@@ -15,8 +15,20 @@ var Scene = Class.extend({
             });
 		}
 	},
-	addChild : function (child, index) {
+	addChild : function (child) {
 		this._childs.push(child);
+	},
+	removeChild : function(child) {
+		var i;
+		var index = -1;
+		for (i in this._childs) {
+			if (this._childs[i]._id === child._id) {
+				index = i;
+			}
+		}
+		if (index >= 0) {
+			this._childs.splice(index, 1);
+		}
 	},
 	draw : function (ctx, dt) {
 		this._sort();

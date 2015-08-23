@@ -1,3 +1,11 @@
+Nebula.Camera = {
+	
+	x : 0,
+	y : 0,
+	alpha : 1,
+	isEnable : false
+}
+
 Nebula.Ract = function (xx, yy, ww, hh) {
     return {x:xx, y:yy, w:ww, h:hh};
 };
