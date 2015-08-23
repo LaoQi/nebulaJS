@@ -96,7 +96,17 @@ var Sprite = Class.extend({
     },
     setTexture : function(img, ract) {
 		this._texture = Texture.getTexture(img);
-        if (typeof(ract) === "undefined") {
+        if (typeof(ract) === "undefined" || !ract) {
+            this._ract = Nebula.Ract(0, 0, this._texture.width, this._texture.height);
+        } else {
+            this._ract = ract;
+        }
+        this.width = this._ract.w * this.scale;
+        this.height = this._ract.h * this.scale;
+    },
+    setTextureData : function(img, ract) {
+        this._texture = img;
+        if (typeof(ract) === "undefined" || !ract) {
             this._ract = Nebula.Ract(0, 0, this._texture.width, this._texture.height);
         } else {
             this._ract = ract;

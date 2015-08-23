@@ -1,17 +1,20 @@
 var Label = Sprite.extend({
 
-	_viewstr : "",
-	_font : "sans-serif",
+	_viewstr : null,
+	_font : null,
 	_fontSize : 12,
 	_spacing : 10,
 	_length : 9,
 	_ismono : false,
-	_color : "black",
-	_fontSet : "12px sans-serif",
+	_color : null,
+	_fontSet : null,
 
 	init : function (str) {
         this._super();
         this._viewstr = str;
+
+        this._font = "sans-serif";
+        this._color = "black";
 
         this._length = str.length;
         this._resize();

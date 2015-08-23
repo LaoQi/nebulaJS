@@ -12,7 +12,7 @@ Nebula.Director = {
 	_lastFrameTime : null,
 	_DT : null,
 
-	_debug : true,
+	_debug : false,
 	_displayFPS : true,
 	_FPSsample : 60,
 
@@ -91,7 +91,7 @@ Nebula.Director = {
 		for (;i >= 0; --i) {
 			if (Nebula.Director._ptInRact(x, y, Nebula.Director._onmousedownobj[i])) {
 				Nebula.Director._onmousedownobj[i].onmousedown(e);
-				if (typeof(Nebula.Director._onmousedownobj[i]) !== "undefined" && 
+				if (typeof(Nebula.Director._onmousedownobj[i]) == "undefined" || 
 					!Nebula.Director._onmousedownobj[i].allowThrough) break;
 			}
 		}
@@ -114,8 +114,8 @@ Nebula.Director = {
 			if (Nebula.Director._ptInRact(x, y, Nebula.Director._onmouseupobj[i])) {
 				Nebula.Director._onmouseupobj[i].onmouseup(e);
 				//replace scene clear
-				if (typeof(Nebula.Director._onmouseupobj[i]) !== "undefined" 
-					&& !Nebula.Director._onmouseupobj[i].allowThrough) 
+				if (typeof(Nebula.Director._onmouseupobj[i]) == "undefined" 
+					|| !Nebula.Director._onmouseupobj[i].allowThrough) 
 					break;
 			}
 		}
@@ -184,14 +184,18 @@ Nebula.Director = {
 	},
 	runScene : function (scene) {
 		if (this._scene)  {
+			this._scene.onLeave();
 			delete this._scene;
 		}
 		this._scene = scene;
+		this._scene.onEnter();
 	},
 	replaceScene : function (scene) {
+		this._scene.onLeave();
 		delete this._scene;
 		this._clear();
 		this._scene = new scene();
+		this._scene.onEnter();
 	},
 	_clear : function () {
 		this._onmousedownobj = [];

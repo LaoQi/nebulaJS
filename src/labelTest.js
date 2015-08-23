@@ -1,4 +1,4 @@
-var LabelTestScene = Scene.extend({
+var LabelTestScene = TestScene.extend({
     init : function () {
         this._super();
         //base test

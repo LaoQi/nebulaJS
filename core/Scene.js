@@ -1,12 +1,10 @@
 var Scene = Class.extend({
 	_childs : null,
-	_index : null,
 
     schedule : false,
 
 	init : function () {
 		this._childs = [];
-		this._index = [];
 	},
 	_sort : function () {
 		if (this._childs && this._childs.length > 0) {
@@ -14,6 +12,11 @@ var Scene = Class.extend({
                 return a.zIndex - b.zIndex;
             });
 		}
+	},
+
+	onLeave : function() {
+	},
+	onEnter : function() {
 	},
 	addChild : function (child) {
 		this._childs.push(child);
@@ -37,6 +40,8 @@ var Scene = Class.extend({
 			    this._childs[i].draw(ctx, dt);
             }
 		}
+	},
+	update : function(dt) {
 	},
 	_update : function(dt) {
         if (this.schedule) {

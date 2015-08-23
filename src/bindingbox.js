@@ -1,4 +1,4 @@
-var BindingboxScene = Scene.extend({
+var BindingboxScene = TestScene.extend({
     init : function () {
         this._super();
         s = new Sprite("doge");

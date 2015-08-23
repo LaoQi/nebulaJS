@@ -1,5 +1,6 @@
 var Resource = {
 	"src" : [
+		"src/TestScene.js",
 		"src/main.js",
         "src/animateTest.js",
         "src/clickTest.js",

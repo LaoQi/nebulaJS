@@ -1,4 +1,4 @@
-var ClickTestScene = Scene.extend({
+var ClickTestScene = TestScene.extend({
     init : function () {
         this._super();
         s = new Sprite("doge");
@@ -26,7 +26,7 @@ var ClickTestScene = Scene.extend({
 
         var s3 = new Sprite("head");
         s3.zIndex = 60;
-        s3.x = 300;
+        s3.x = 230;
         s3.y = 150;
         s3.rotate = 30;
         this.addChild(s3);
@@ -40,6 +40,12 @@ var ClickTestScene = Scene.extend({
             console.log("s2 removeMouseListener");
             Nebula.Director.removeMouseListener(s2, "down");
         });
+    },
+    onEnter : function () {
+        Nebula.Director._debug = true;
+    },
+    onLeave : function() {
+        Nebula.Director._debug = false;
     },
     update : function (dt) {
     }

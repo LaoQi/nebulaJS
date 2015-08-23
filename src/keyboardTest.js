@@ -1,4 +1,4 @@
-var KeyboardScene = Scene.extend({
+var KeyboardScene = TestScene.extend({
     init : function () {
         this._super();
 
