@@ -2,6 +2,13 @@ var KeyboardScene = TestScene.extend({
     init : function () {
         this._super();
 
+        var note = new Label("↑↓← → space");
+        note.x = Nebula.Director.width/2;
+        note.y = 60;
+        note.setFontSize(32);
+        note.setSpacing(30);
+        this.addChild(note);
+
         //test onkeydown
         s = new Sprite("doge");
         s.x = Nebula.Director.width/2;
