@@ -6,7 +6,7 @@ var Resource = {
         "src/clickTest.js",
         "src/keyboardTest.js",
         "src/bindingbox.js",
-        "src/labeltest.js"
+        "src/labelTest.js"
 	],
 	"texture" : {
         "doge" : "Resource/doge.png",
