@@ -1,18 +1,31 @@
 var Resource = {
-	"src" : [
-		"src/TestScene.js",
-		"src/main.js",
+    "src" : [
+        //framework core
+        "core/Class.js",
+        "core/Director.js",
+        "core/Texture.js",
+        "core/Common.js",
+        "core/Scene.js",
+        "core/Sprite.js",
+        
+        //framework extend
+        "ext/Button.js",
+        "ext/Label.js",
+
+        //source file
+        "src/TestScene.js",
+        "src/main.js",
         "src/animateTest.js",
         "src/clickTest.js",
         "src/keyboardTest.js",
         "src/bindingbox.js",
         "src/labelTest.js"
-	],
-	"texture" : {
+    ],
+    "texture" : {
         "doge" : "Resource/doge.png",
         "head" : "Resource/head.png",
         "run" : "Resource/run.png",
         "b1" : "Resource/b1.png",
         "b2" : "Resource/b2.png"
-	}
+    }
 };
